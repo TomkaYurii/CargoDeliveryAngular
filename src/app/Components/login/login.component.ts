@@ -16,6 +16,11 @@ export class LoginComponent {
     private authService: AuthService,
     private _snackBar: MatSnackBar
   ) {}
+  // Данные для ваших двух колонок
+  column1Data = ['Item 1', 'Item 2', 'Item 3'];
+  column2Data = ['Item 4', 'Item 5', 'Item 6'];
+
+
 
   //Declaration
   //Check the form is submitted or not yet
@@ -67,7 +72,7 @@ export class LoginComponent {
         },
       });
     } else {
-      this._snackBar.open('Enter a valid informations !!!', '❌');
+      this._snackBar.open('Enter a valid information!', '❌');
     }
   }
 }

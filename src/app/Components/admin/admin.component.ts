@@ -7,15 +7,22 @@ import { User} from "../../models/user";
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
+
+
 export class AdminComponent {
-  listUSers : User[] = [];
+  listUsers : User[] = [];
+
   constructor(private userService : UserService){
-    this.getAllUSers();
+    this.getAllUsers();
   }
 
-  getAllUSers(){
+  getAllUsers(){
     this.userService.getAll().subscribe((response : User[])=>{
-      this.listUSers = response;
+      this.listUsers = response;
     })
   }
+
+
+  displayedColumns: string[] = ['firstname', 'lastname', 'email', 'country', 'city'];
+
 }

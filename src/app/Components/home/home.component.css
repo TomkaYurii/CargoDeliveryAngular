@@ -1,0 +1,34 @@
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: black;
+  height: 100%;
+}
+
+.example-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  height: 100%;
+}
+
+.example-header-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: url('https://material.angular.io/assets/img/examples/shiba2.jpg');
+  background-size: cover;
+}
+
+.example-card-content{
+  margin-top: 10px;
+}
+
+
+
+
+home-img{
+  height: 200px;
+  width: 200px;
+}

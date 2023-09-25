@@ -1,0 +1,21 @@
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.vertical-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 85%;
+}
+
+.vertical-form * {
+  width: 100%;
+}
+
+.text-register{
+  margin-top: 3vh;
+  text-align: right;
+}

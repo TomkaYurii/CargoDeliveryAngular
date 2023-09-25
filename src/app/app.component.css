@@ -1,0 +1,15 @@
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.horizontal-menu {
+  display: flex;
+  flex-direction: row; /* Display items in a horizontal row */
+  align-items: flex-start; /* Align items vertically within the container */
+}
+
+.menu-item {
+  width: 100px; /* Adjust the width as needed */
+}
+
+

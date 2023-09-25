@@ -1,5 +1,5 @@
-<header class="container header">
-  <!-- ==== NAVBAR ==== -->
+<!--<header class="container header">
+  &lt;!&ndash; ==== NAVBAR ==== &ndash;&gt;
   <nav class="nav">
     <div class="logo">
       <h2 routerLink="/Home" style="cursor: pointer;">Attia's Tuto</h2>
@@ -37,3 +37,50 @@
   <hr>
 </header>
 <router-outlet></router-outlet>
+<header class="container header">-->
+  <!-- ==== NAVBAR ==== -->
+<mat-toolbar color="primary">
+  <button mat-icon-button class="toolbar-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span> CARGO DELIVERY SERVICE </span>
+  <span class="toolbar-spacer"></span>
+
+  <mat-nav-list class="horizontal-menu">
+    <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+      <mat-list-item class="menu-item" [routerLink]="['/User']" routerLinkActive="active">
+        <a matLine class="nav_menu_link">User</a>
+      </mat-list-item>
+      <mat-list-item class="menu-item" [routerLink]="['/Admin']" routerLinkActive="active">
+        <a matLine class="nav_menu_link">Admin</a>
+      </mat-list-item>
+      <mat-list-item class="menu-item" (click)="signOut()">
+        <a matLine class="nav_menu_link">LogOut</a>
+      </mat-list-item>
+      <mat-list-item class="menu-item" [routerLink]="['/UserProfile']" routerLinkActive="active">
+        <a matLine class="nav_menu_link">{{ getUserName() }}</a>
+      </mat-list-item>
+    </ng-container>
+
+    <ng-template #notLoggedIn>
+      <mat-list-item class="menu-item" [routerLink]="['/SignIn']" routerLinkActive="active">
+        <a matLine class="nav_menu_link">SignIn</a>
+      </mat-list-item>
+      <mat-list-item class="menu-item" [routerLink]="['/SignUp']" routerLinkActive="active">
+        <a matLine class="nav_menu_link">SignUp</a>
+      </mat-list-item>
+    </ng-template>
+  </mat-nav-list>
+
+  <button mat-icon-button class="toolbar-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="toolbar-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+
