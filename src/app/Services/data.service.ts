@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
 export class DataService {
 
   // Inject ApiUrl in constructor to Get it form ather Service
-  constructor(@Inject(String) private APIUrl: string,private http: HttpClient) { }
+  constructor(@Inject(String) private APIUrl: string,
+              private http: HttpClient) { }
 
   // Get Method
   getAll(): Observable<any> {

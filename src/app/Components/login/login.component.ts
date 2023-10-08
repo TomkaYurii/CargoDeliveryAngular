@@ -16,10 +16,6 @@ export class LoginComponent {
     private authService: AuthService,
     private _snackBar: MatSnackBar
   ) {}
-  // Данные для ваших двух колонок
-  column1Data = ['Item 1', 'Item 2', 'Item 3'];
-  column2Data = ['Item 4', 'Item 5', 'Item 6'];
-
 
 
   //Declaration
@@ -34,11 +30,12 @@ export class LoginComponent {
 
   //form validators
   form: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(8),
-    ]),
+      Validators.minLength(8)]),
   });
 
   //get all Form Fields
@@ -52,16 +49,17 @@ export class LoginComponent {
   // match errors in the submition of form
   matcher = new ErrorsStateMatcher();
 
-  // submit fntc
+  // submit Login info
   onSubmit() {
     const LoginInfo = {
       email: this.email?.value,
       password: this.password?.value,
     };
+
     if (this.form.valid) {
       this.userService.signIn(LoginInfo).subscribe({
         next: (data: any) => {
-          this.authService.saveToken(data.token);
+          this.authService.saveToken(data.jwtToken);
           this.isLoginFailed = false;
           window.location.reload();
         },

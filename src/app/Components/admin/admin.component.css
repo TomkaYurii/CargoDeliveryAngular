@@ -1,0 +1,14 @@
+.user-table{
+  width: 90%;
+  margin: 2vh auto;
+}
+
+.mat-header-cell, .mat-cell {
+  text-align: left;
+}
+
+.mat-header-row, .mat-row {
+  align-items: center;
+}
+
+

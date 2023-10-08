@@ -7,6 +7,7 @@ const TOKEN_KEY = 'TOKEN_KEY';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
   constructor(private router: Router) {}
 
@@ -28,6 +29,7 @@ export class AuthService {
     const userId = decodedToken != null ? decodedToken?.id : null;
     return userId;
   }
+
   public getToken(): string | null {
     return window.sessionStorage.getItem(TOKEN_KEY) !== null
       ? window.sessionStorage.getItem(TOKEN_KEY)

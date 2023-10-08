@@ -1,66 +1,43 @@
-<!--
-<table class="table" style="margin-top: 10px;">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">First</th>
-    <th scope="col">Last</th>
-    <th scope="col">Email</th>
-    <th scope="col">Country</th>
-    <th scope="col">City</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of listUSers">
-    <th scope="row">{{user.userId}}</th>
-    <td>{{user.firstname}}</td>
-    <td>{{user.lastname}}</td>
-    <td>{{user.email}}</td>
-    <td>{{user.addresses[0].country}}</td>
-    <td>{{user.addresses[0].city}}</td>
-  </tr>
-  </tbody>
-</table>
--->
-
-
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="listUsers">
-    <ng-container matColumnDef="Userd">
-      <th mat-header-cell *matHeaderCellDef> userId </th>
-      <td mat-cell *matCellDef="let user"> {{user.userId}} </td>
+<div class="mat-elevation-z8 user-table">
+  <mat-table [dataSource]="listOfUser">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.id }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="firstname">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let user"> {{user.firstname}} </td>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.title }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="lastname">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let user"> {{user.lastname}} </td>
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.firstName }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.lastName }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.email }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="country">
-      <th mat-header-cell *matHeaderCellDef> Country </th>
-      <td mat-cell *matCellDef="let user"> {{user.addresses[0].country}} </td>
+    <ng-container matColumnDef="role">
+      <mat-header-cell *matHeaderCellDef>Role</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.role }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="City">
-      <th mat-header-cell *matHeaderCellDef> City </th>
-      <td mat-cell *matCellDef="let user"> {{user.addresses[0].city}} </td>
+    <ng-container matColumnDef="isVerified">
+      <mat-header-cell *matHeaderCellDef>isVerified</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.isVerified }}</mat-cell>
     </ng-container>
 
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons
